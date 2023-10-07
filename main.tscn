@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7p1tf0pm6sy7"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_8k732"]
+[ext_resource type="PackedScene" uid="uid://dd8475sts5tg8" path="res://prefab/button.tscn" id="2_yrl3i"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("game_clear_text")]
+script = ExtResource("1_8k732")
+button = ExtResource("2_yrl3i")
+game_clear_text = NodePath("GameClearText")
+
+[node name="Score" type="Label" parent="."]
+offset_right = 122.0
+offset_bottom = 49.0
+text = "Score:0"
+
+[node name="GameClearText" type="Label" parent="."]
+modulate = Color(0.537255, 1, 0.0431373, 1)
+offset_left = 344.0
+offset_top = 256.0
+offset_right = 826.0
+offset_bottom = 377.0
+theme_override_font_sizes/font_size = 86
+text = "Game Clear"
+horizontal_alignment = 1
+vertical_alignment = 1
