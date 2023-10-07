@@ -13,7 +13,8 @@ var last_clicked_number = 0
 func _ready():
 	# ゲームクリアテキストを非表示にする
 	game_clear_text.hide()
-	
+
+	# ボタンを10個生成する
 	for i in range(10):
 		var buttonNode = button.instantiate() as Button
 		buttonNode.text = str(i + 1)
@@ -30,6 +31,7 @@ func _ready():
 
 
 
+# ボタンをクリックしたときにイベント
 func on_some_button_pressed(target_button:Button):
 	print(target_button.text)
 	
