@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://dd8475sts5tg8" path="res://prefab/button.tscn" id="2_yrl3i"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("game_clear_text")]
+modulate = Color(0.92549, 0.839216, 0.984314, 1)
+self_modulate = Color(0.882353, 0.784314, 0.968627, 1)
+show_behind_parent = true
 script = ExtResource("1_8k732")
 button = ExtResource("2_yrl3i")
 game_clear_text = NodePath("GameClearText")

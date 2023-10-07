@@ -16,19 +16,31 @@ func _ready():
 
 	# ボタンを10個生成する
 	for i in range(10):
-		var buttonNode = button.instantiate() as Button
-		buttonNode.text = str(i + 1)
-		add_child(buttonNode)
-		
-		var viewport_rect = get_viewport_rect()
-		
-		var random_x = randf_range(viewport_rect.position.x,viewport_rect.size.x - buttonNode.size.x)
-		var random_y = randf_range(viewport_rect.position.y,viewport_rect.size.y - buttonNode.size.y)
-		
-		buttonNode.position = Vector2(random_x,random_y)	
-		
-		buttonNode.pressed.connect(on_some_button_pressed.bind(buttonNode))
+		create_number_button(i)
 
+# ボタンの生成
+func create_number_button(button_index:int):
+	var buttonNode = button.instantiate() as Button
+	buttonNode.text = str(button_index + 1)
+	add_child(buttonNode)
+	
+	var viewport_rect = get_viewport_rect()
+	
+		# ボタンのサイズをランダムに決める
+	var random_size = randf_range(0.5,2)
+	buttonNode.scale = Vector2(random_size,random_size)
+	
+	# ボタンの位置をランダムに決める
+	var random_x = randf_range(viewport_rect.position.x,viewport_rect.size.x - buttonNode.size.x)
+	var random_y = randf_range(viewport_rect.position.y,viewport_rect.size.y - buttonNode.size.y)
+	buttonNode.position = Vector2(random_x,random_y)	
+
+	# ボタンの色をランダムに決める
+	var random_color = Color(randf(),randf(),randf(),1)
+	buttonNode.modulate = random_color
+	
+	# ボタンを押したときのイベントを登録する
+	buttonNode.pressed.connect(on_some_button_pressed.bind(buttonNode))
 
 
 # ボタンをクリックしたときにイベント
